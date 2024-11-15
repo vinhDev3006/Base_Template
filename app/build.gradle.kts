@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "vinhnguyen.application.base_template"
+    namespace = "example.application.base_template"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "vinhnguyen.application.base_template"
+        applicationId = "example.application.base_template"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
