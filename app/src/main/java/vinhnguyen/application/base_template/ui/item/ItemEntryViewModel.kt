@@ -48,8 +48,7 @@ class ItemEntryViewModel(private val itemsRepository: ItemsRepository) : ViewMod
  * Represents Ui State for an Item.
  */
 data class ItemUiState(
-    val itemDetails: ItemDetails = ItemDetails(),
-    val isEntryValid: Boolean = false
+    val itemDetails: ItemDetails = ItemDetails(), val isEntryValid: Boolean = false
 )
 
 data class ItemDetails(
@@ -79,16 +78,12 @@ fun Item.formatedPrice(): String {
  * Extension function to convert [Item] to [ItemUiState]
  */
 fun Item.toItemUiState(isEntryValid: Boolean = false): ItemUiState = ItemUiState(
-    itemDetails = this.toItemDetails(),
-    isEntryValid = isEntryValid
+    itemDetails = this.toItemDetails(), isEntryValid = isEntryValid
 )
 
 /**
  * Extension function to convert [Item] to [ItemDetails]
  */
 fun Item.toItemDetails(): ItemDetails = ItemDetails(
-    id = id,
-    name = name,
-    price = price.toString(),
-    quantity = quantity.toString()
+    id = id, name = name, price = price.toString(), quantity = quantity.toString()
 )

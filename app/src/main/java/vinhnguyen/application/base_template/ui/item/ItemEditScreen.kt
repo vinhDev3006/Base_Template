@@ -1,5 +1,6 @@
 package vinhnguyen.application.base_template.ui.item
 
+import android.content.res.Resources.Theme
 import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.padding
@@ -12,12 +13,14 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 import vinhnguyen.application.base_template.InventoryTopAppBar
 import vinhnguyen.application.base_template.R
 import vinhnguyen.application.base_template.ui.AppViewModelProvider
 import vinhnguyen.application.base_template.ui.navigation.NavigationDestination
+import vinhnguyen.application.base_template.ui.theme.Base_TemplateTheme
 
 object ItemEditDestination : NavigationDestination {
     override val route = "item_edit"
@@ -42,8 +45,7 @@ fun ItemEditScreen(
                 canNavigateBack = true,
                 navigateUp = onNavigateUp
             )
-        },
-        modifier = modifier
+        }, modifier = modifier
     ) { innerPadding ->
         ItemEntryBody(
             itemUiState = viewModel.itemUiState,

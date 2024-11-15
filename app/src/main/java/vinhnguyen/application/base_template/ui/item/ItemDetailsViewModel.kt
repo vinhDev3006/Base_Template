@@ -26,15 +26,13 @@ class ItemDetailsViewModel(
      * the UI state.
      */
     val uiState: StateFlow<ItemDetailsUiState> =
-        itemsRepository.getItemStream(itemId)
-            .filterNotNull()
-            .map {
-                ItemDetailsUiState(outOfStock = it.quantity <= 0, itemDetails = it.toItemDetails())
-            }.stateIn(
-                scope = viewModelScope,
-                started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
-                initialValue = ItemDetailsUiState()
-            )
+        itemsRepository.getItemStream(itemId).filterNotNull().map {
+            ItemDetailsUiState(outOfStock = it.quantity <= 0, itemDetails = it.toItemDetails())
+        }.stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
+            initialValue = ItemDetailsUiState()
+        )
 
     /**
      * Reduces the item quantity by one and update the [ItemsRepository]'s data source.
@@ -64,6 +62,5 @@ class ItemDetailsViewModel(
  * UI state for ItemDetailsScreen
  */
 data class ItemDetailsUiState(
-    val outOfStock: Boolean = true,
-    val itemDetails: ItemDetails = ItemDetails()
+    val outOfStock: Boolean = true, val itemDetails: ItemDetails = ItemDetails()
 )

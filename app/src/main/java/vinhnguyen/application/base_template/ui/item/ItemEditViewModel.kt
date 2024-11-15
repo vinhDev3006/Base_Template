@@ -15,8 +15,7 @@ import vinhnguyen.application.base_template.data.ItemsRepository
  * ViewModel to retrieve and update an item from the [ItemsRepository]'s data source.
  */
 class ItemEditViewModel(
-    savedStateHandle: SavedStateHandle,
-    private val itemsRepository: ItemsRepository
+    savedStateHandle: SavedStateHandle, private val itemsRepository: ItemsRepository
 ) : ViewModel() {
 
     /**
@@ -29,10 +28,8 @@ class ItemEditViewModel(
 
     init {
         viewModelScope.launch {
-            itemUiState = itemsRepository.getItemStream(itemId)
-                .filterNotNull()
-                .first()
-                .toItemUiState(true)
+            itemUiState =
+                itemsRepository.getItemStream(itemId).filterNotNull().first().toItemUiState(true)
         }
     }
 

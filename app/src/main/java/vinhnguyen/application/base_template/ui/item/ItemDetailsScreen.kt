@@ -77,11 +77,10 @@ fun ItemDetailsScreen(
             FloatingActionButton(
                 onClick = { navigateToEditItem(uiState.value.itemDetails.id) },
                 shape = MaterialTheme.shapes.medium,
-                modifier = Modifier
-                    .padding(
-                        end = WindowInsets.safeDrawing.asPaddingValues()
-                            .calculateEndPadding(LocalLayoutDirection.current)
-                    )
+                modifier = Modifier.padding(
+                    end = WindowInsets.safeDrawing.asPaddingValues()
+                        .calculateEndPadding(LocalLayoutDirection.current)
+                )
             ) {
                 Icon(
                     imageVector = Icons.Default.Edit,
@@ -91,8 +90,7 @@ fun ItemDetailsScreen(
         },
         modifier = modifier,
     ) { innerPadding ->
-        ItemDetailsBody(
-            itemDetailsUiState = uiState.value,
+        ItemDetailsBody(itemDetailsUiState = uiState.value,
             onSellItem = { viewModel.reduceQuantityByOne() },
             onDelete = {
                 // Note: If the user rotates the screen very fast, the operation may get cancelled
@@ -146,11 +144,10 @@ private fun ItemDetailsBody(
             Text(stringResource(R.string.delete))
         }
         if (deleteConfirmationRequired) {
-            DeleteConfirmationDialog(
-                onDeleteConfirm = {
-                    deleteConfirmationRequired = false
-                    onDelete()
-                },
+            DeleteConfirmationDialog(onDeleteConfirm = {
+                deleteConfirmationRequired = false
+                onDelete()
+            },
                 onDeleteCancel = { deleteConfirmationRequired = false },
                 modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))
             )
@@ -176,12 +173,9 @@ fun ItemDetails(
             verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium))
         ) {
             ItemDetailsRow(
-                labelResID = R.string.item,
-                itemDetail = item.name,
-                modifier = Modifier.padding(
+                labelResID = R.string.item, itemDetail = item.name, modifier = Modifier.padding(
                     horizontal = dimensionResource(
-                        id = R.dimen
-                            .padding_medium
+                        id = R.dimen.padding_medium
                     )
                 )
             )
@@ -190,8 +184,7 @@ fun ItemDetails(
                 itemDetail = item.quantity.toString(),
                 modifier = Modifier.padding(
                     horizontal = dimensionResource(
-                        id = R.dimen
-                            .padding_medium
+                        id = R.dimen.padding_medium
                     )
                 )
             )
@@ -200,8 +193,7 @@ fun ItemDetails(
                 itemDetail = item.formatedPrice(),
                 modifier = Modifier.padding(
                     horizontal = dimensionResource(
-                        id = R.dimen
-                            .padding_medium
+                        id = R.dimen.padding_medium
                     )
                 )
             )

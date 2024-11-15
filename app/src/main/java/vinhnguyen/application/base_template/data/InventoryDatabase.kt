@@ -21,9 +21,7 @@ abstract class InventoryDatabase : RoomDatabase() {
             // if the Instance is not null, return it, otherwise create a new database instance.
             return Instance ?: synchronized(this) {
                 Room.databaseBuilder(context, InventoryDatabase::class.java, "item_database.db")
-                    .createFromAsset("database/item_database.db")
-                    .build()
-                    .also { Instance = it }
+                    .createFromAsset("database/item_database.db").build().also { Instance = it }
             }
         }
     }
