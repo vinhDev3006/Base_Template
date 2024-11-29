@@ -9,12 +9,8 @@ This template is designed to simplify Android app development, providing a ready
 - **Jetpack Compose with Material 3**: Build responsive, modern UIs with Jetpack Compose and Material 3 design components. 
 - **ViewModel**: Manage UI-related data with lifecycle awareness using Jetpack ViewModel.
 - **Navigation**: Simplified in-app navigation with Compose Navigation.
-- **Room**: Load prepopulate data or store and same with Room database, pre-configured for integration with Kotlin..
+- **Room**: Load prepopulate data or store data with Room database, pre-configured for integration with Kotlin..
 - **KSP (Kotlin Symbol Processing)**: Modern annotation processing tool integrated for faster build times, migrating from KAPT.
 
-# 
 
-This template is based on the tutorial for Google’s [Inventory Tracking App](https://github.com/google-developer-training/basic-android-kotlin-compose-training-inventory-app.git), you can use this template and create your own project.
-
-
-The Google’s [Inventory Tracking App] licensed with Apeche 2.0
+This template is based on the tutorial for Google’s [Inventory Tracking App](https://github.com/google-developer-training/basic-android-kotlin-compose-training-inventory-app.git).
